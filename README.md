@@ -1,10 +1,9 @@
 <h1>SOC Lab</h1>
 
- ### [[YouTube Demonstration](https://youtu.be/7eJexJVCqJo](https://www.youtube.com/watch?v=JRgVbA_mCDQ&list=PLjjkJroii8DDb0QZpWLo978VXcLp8-xW3&index=2))
-
+ 
 <h2>Description</h2>
  In this project i will be taking inspiration from ... This will be a deeper delve into firewall configurations, SIEM tool (Wazuh) in conjunction with threat intelligence tools.
- This is particularly intriguing lab as it takes the approach from ground up to the finish products and not understand the technology behind each tools
+ This is particularly intriguing lab as it takes the approach from ground up to the finish products purposely to better understand the technology behinnd some of these wonderful tools and help in optmizing it usage
 <br />
 
 
@@ -17,39 +16,66 @@
 - <b>Cortex</b>
 - <b>MISP</b>
 
-<h2>Environments Used </h2>
+<h2>Environment Used </h2>
 
-- <b>Windows 10</b> (21H2)
+- <b>Virtual Box</b>
 
-<h2>Program walk-through:</h2>
+<h2>Firewall installation and setup:</h2>
 
 <p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Network Diagram: <br/>
+<img src="https://imgur.com/MB62alk.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+ 
+ this is the network diagram i will be using for my SOC LAB. Firewall to use is OPnsense as stated earlier 
 <br />
 <br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+OPnsense installation:  <br/>
+<img src="https://imgur.com/nP5j0IS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Assign IP address to the LAN interface and set up DHCP: <br/>
+<img src="https://imgur.com/uNwXMDK.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Homepage of firewall with ip firewall (10.200.200.254):  <br/><img src="https://imgur.com/sZv6r3b.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+update opnsense firmware (may take some time):  <br/>
+<img src="https://imgur.com/epkyRp7.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Wazuh (SIEM):  <br/>
+<img src="https://imgur.com/w3q9uIm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+I installed wazuh (open source SIEM) using OVA file provided in the documentation
+https://documentation.wazuh.com/current/deployment-options/virtual-machine/virtual-machine.html
 <br />
 <br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+I assigned an IP of 10.200.200.5 to the wazuh VM via sudo vi /etc/sysconfig/network-scripts/ifcg-eth0:  <br/>
+<img src="https://imgur.com/Uwu3vHI.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+
+Wazuh Dasboard:  <br/>
+<img src="https://imgur.com/7UugTea.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+Cortex, MISP & TheHive:  <br/>
+<img src="https://imgur.com/Uwu3vHI.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+With regards to threat intelligence i used Cortex, and MISP and deployed The hive as my insident response tool. This was achieved
+by deploying an ubuntu server 22.04 and docker containers Assigning an ip address of 10.20.200.253. The YAML file used for the integration of these tools can be fond here
+https://github.com/ls111-cybersec/thehive-cortex-misp-docker-compose-lab11update/blob/main/docker-compose.yml
+</p>
+
+TheHive dashboard:  <br/>
+<img src="https://imgur.com/zEaOZVf.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+
+Cortex dashboard:  <br/>
+<img src="https://imgur.com/OzlODN3.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+
+MISP dashboard:  <br/>
+<img src="https://imgur.com/yY9JJVg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 
 <!--
