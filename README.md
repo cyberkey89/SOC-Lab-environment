@@ -2,8 +2,8 @@
 
  
 <h2>Description</h2>
- In this project i will be taking inspiration from ... This will be a deeper delve into firewall configurations, SIEM tool (Wazuh) in conjunction with threat intelligence tools.
- This is particularly intriguing lab as it takes the approach from ground up to the finish products purposely to better understand the technology behinnd some of these wonderful tools and help in optmizing it usage
+ In this project i will be setting up my homelab taking inspiration from https://github.com/ls111-cybersec and adding my own twist to it. This will involve firewall configurations, SIEM tool (Wazuh) in conjunction with threat intelligence tools.
+ This is particularly intriguing lab as it takes the approach from ground up to the finish products purposely to better understand the technology behinnd some of these wonderful tools and help in optmizing it usage as a Cybersecurity professional
 <br />
 
 
